@@ -1,3 +1,4 @@
+import FormSubmit from '@/components/form-submit';
 import { storePost } from '@/lib/posts';
 
 export default function NewPostPage() {
@@ -7,8 +8,8 @@ export default function NewPostPage() {
     const image = formData.get('image');
     const content = formData.get('content');
 
-    storePost({
-      imageUrl: image,
+    await storePost({
+      imageUrl: '',
       title,
       content,
       userId: 1,
@@ -37,8 +38,7 @@ export default function NewPostPage() {
           <textarea id="content" name="content" rows="5" />
         </p>
         <p className="form-actions">
-          <button type="reset">Reset</button>
-          <button>Create Post</button>
+          <FormSubmit />
         </p>
       </form>
     </>
